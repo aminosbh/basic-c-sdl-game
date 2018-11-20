@@ -62,6 +62,12 @@ bool Game_start(SDL_Renderer *renderer, int w, int h)
         return false;
     }
 
+    // Initialize framerate manager : 30 FPS
+    FPSmanager fpsmanager;
+    SDL_initFramerate(&fpsmanager);
+    SDL_setFramerate(&fpsmanager, 30);
+
+
     // Event loop exit flag
     bool quit = false;
 
@@ -71,7 +77,7 @@ bool Game_start(SDL_Renderer *renderer, int w, int h)
         SDL_Event e;
 
         // Get available event
-        if(SDL_WaitEvent(&e))
+        while(SDL_PollEvent(&e))
         {
             // User requests quit
             if(e.type == SDL_QUIT)
@@ -89,6 +95,9 @@ bool Game_start(SDL_Renderer *renderer, int w, int h)
 
         // Update screen
         SDL_RenderPresent(renderer);
+
+        // Delay
+        SDL_framerateDelay(&fpsmanager);
     }
 
     return true;

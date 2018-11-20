@@ -32,6 +32,7 @@
 #define GAME_H
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL2_framerate.h>
 
 #include "grid.h"
 
