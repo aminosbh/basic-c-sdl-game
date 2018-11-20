@@ -44,8 +44,8 @@ int main(int argc, char* argv[])
     // Initialize SDL
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
-        printf("SDL could not be initialized!\n"
-               "SDL_Error: %s\n", SDL_GetError());
+        fprintf(stderr, "SDL could not be initialized!\n"
+                        "SDL_Error: %s\n", SDL_GetError());
         return 0;
     }
 
@@ -57,8 +57,8 @@ int main(int argc, char* argv[])
                                           SDL_WINDOW_SHOWN);
     if(!window)
     {
-        printf("Window could not be created!\n"
-               "SDL_Error: %s\n", SDL_GetError());
+        fprintf(stderr, "Window could not be created!\n"
+                        "SDL_Error: %s\n", SDL_GetError());
     }
     else
     {
@@ -66,8 +66,8 @@ int main(int argc, char* argv[])
         SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         if(!renderer)
         {
-            printf("Renderer could not be created!\n"
-                   "SDL_Error: %s\n", SDL_GetError());
+            fprintf(stderr, "Renderer could not be created!\n"
+                            "SDL_Error: %s\n", SDL_GetError());
         }
         else
         {
