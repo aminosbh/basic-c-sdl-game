@@ -67,6 +67,14 @@ bool Game_start(SDL_Renderer *renderer, int w, int h)
     SDL_initFramerate(&fpsmanager);
     SDL_setFramerate(&fpsmanager, 30);
 
+    // Initialize start time (in ms)
+    long long last = Utils_time();
+
+    // Falling brick coordinates
+    int fallingBrickX = grid.xCells / 2;
+    int fallingBrickY = -1;
+    int fallingBrickSpeed = 4;
+
 
     // Event loop exit flag
     bool quit = false;
@@ -85,6 +93,32 @@ bool Game_start(SDL_Renderer *renderer, int w, int h)
                 quit = true;
                 break;
             }
+        }
+
+        // Move the falling brick
+        if(Utils_time() - last >= 1000 / fallingBrickSpeed)
+        {
+            if(fallingBrickY >= 0)
+            {
+                // Un-color the falling brick last position
+                grid.cells[fallingBrickX][fallingBrickY].rectColor = grid.backgroundColor;
+            }
+
+            if(fallingBrickY < grid.yCells - 1)
+            {
+                // Go to next position
+                fallingBrickY++;
+
+                // Color the falling brick new position
+                grid.cells[fallingBrickX][fallingBrickY].rectColor = COLOR_RED;
+            }
+            else
+            {
+                // Reset position
+                fallingBrickY = -1;
+            }
+
+            last = Utils_time();
         }
 
         // Set background color
