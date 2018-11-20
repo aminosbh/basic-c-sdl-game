@@ -160,6 +160,11 @@ bool Game_start(SDL_Renderer *renderer, int w, int h)
         // Render grid
         Grid_render(&grid, renderer);
 
+        // Show message
+        stringRGBA(renderer, grid.rect.x + grid.xCells, grid.rect.y - 20,
+                   "This is a falling brick < Press RIGTH and LEFT to move >",
+                   COLOR_LIGHT_GRAY.r, COLOR_LIGHT_GRAY.g, COLOR_LIGHT_GRAY.b, COLOR_LIGHT_GRAY.a);
+
         // Update screen
         SDL_RenderPresent(renderer);
 
