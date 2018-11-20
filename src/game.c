@@ -93,6 +93,39 @@ bool Game_start(SDL_Renderer *renderer, int w, int h)
                 quit = true;
                 break;
             }
+            else if(e.type == SDL_KEYDOWN)
+            {
+                switch (e.key.keysym.sym)
+                {
+                case SDLK_ESCAPE:
+                    quit = true;
+                    break;
+
+                case SDLK_RIGHT:
+                    if(fallingBrickY != -1 && fallingBrickX < grid.xCells - 1)
+                    {
+                        // Un-color last position
+                        grid.cells[fallingBrickX][fallingBrickY].rectColor = grid.backgroundColor;
+
+                        // Color new position
+                        fallingBrickX++;
+                        grid.cells[fallingBrickX][fallingBrickY].rectColor = COLOR_RED;
+                    }
+                    break;
+
+                case SDLK_LEFT:
+                    if(fallingBrickY != -1 && fallingBrickX > 0)
+                    {
+                        // Un-color last position
+                        grid.cells[fallingBrickX][fallingBrickY].rectColor = grid.backgroundColor;
+
+                        // Color new position
+                        fallingBrickX--;
+                        grid.cells[fallingBrickX][fallingBrickY].rectColor = COLOR_RED;
+                    }
+                    break;
+                }
+            }
         }
 
         // Move the falling brick
