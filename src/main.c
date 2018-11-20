@@ -33,9 +33,7 @@
 
 #include <SDL2/SDL.h>
 
-// Define MAX and MIN macros
-#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
-#define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+#include "utils.h"
 
 // Define screen dimensions
 #define SCREEN_WIDTH    800
@@ -102,11 +100,8 @@ int main(int argc, char* argv[])
                     quit = true;
                 }
 
-                // Initialize renderer color white for the background
-                SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-
-                // Clear screen
-                SDL_RenderClear(renderer);
+                // Set backgroud color
+                Utils_setBackgroundColor(renderer, COLOR_WHITE);
 
                 // Set renderer color red to draw the square
                 SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
