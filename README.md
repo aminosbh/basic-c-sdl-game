@@ -14,7 +14,7 @@ It shows how we can develop a basic grid-based game.
 **On Debian/Ubuntu based distributions, use the following command:**
 
 ```sh
-sudo apt install git-core build-essential pkg-config cmake cmake-data libsdl2-dev libsdl2-gfx-dev
+sudo apt install git build-essential pkg-config cmake cmake-data libsdl2-dev libsdl2-gfx-dev
 ```
 
 **Optional packages:**
