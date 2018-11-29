@@ -42,7 +42,7 @@ const SDL_Color COLOR_LIGHT_GRAY    = {200, 200, 200, 200};
 const SDL_Color COLOR_RED           = {255, 0, 0, 255};
 const SDL_Color COLOR_GREEN         = {0, 255, 0, 255};
 const SDL_Color COLOR_BLUE          = {0, 0, 255, 255};
-const SDL_Color COLOR_YELLOW        = {0, 255, 255, 255};
+const SDL_Color COLOR_YELLOW        = {255, 255, 0, 255};
 
 void Utils_setBackgroundColor(SDL_Renderer *renderer, SDL_Color color)
 {
