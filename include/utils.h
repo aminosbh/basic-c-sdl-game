@@ -51,6 +51,9 @@ extern const SDL_Color COLOR_RED;
 extern const SDL_Color COLOR_GREEN;
 extern const SDL_Color COLOR_BLUE;
 extern const SDL_Color COLOR_YELLOW;
+extern const SDL_Color COLOR_ORANGE;
+extern const SDL_Color COLOR_PINK;
+extern const SDL_Color COLOR_VIOLET;
 
 
 void Utils_setBackgroundColor(SDL_Renderer *renderer, SDL_Color color);
