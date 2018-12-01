@@ -46,8 +46,6 @@ int Grid_ajustSize(Grid *grid)
     int interspaceHeigth = (grid->yCells + 2) * grid->yInterspace;
     grid->rect.h -= (grid->rect.h - interspaceHeigth) % grid->yCells;
 
-    printf("w: %d, h: %d", grid->rect.w, grid->rect.h);
-
     return true;
 }
 
