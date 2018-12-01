@@ -36,8 +36,8 @@ bool Game_start(SDL_Renderer *renderer, int w, int h)
     Grid grid = {0};
 
     // Set grid dimensions
-    int padding = 50;
-    grid.rect.w = MIN(w - padding*2, h - padding*2);
+    int margin = 50;
+    grid.rect.w = MIN(w - margin * 2, h - margin * 2);
     grid.rect.h = grid.rect.w;
 
     // Set number of cells
