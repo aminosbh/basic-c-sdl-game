@@ -114,15 +114,18 @@ void Grid_initCell(Grid *grid, Cell *cell, int i, int j, SDL_Color color, SDL_Co
 
 void Grid_render(Grid *grid, SDL_Renderer *renderer)
 {
-    // Set renderer color to draw the grid border
-    SDL_SetRenderDrawColor(renderer,
-                           grid->borderColor.r,
-                           grid->borderColor.g,
-                           grid->borderColor.b,
-                           grid->borderColor.a);
+    if(grid->border != 0) // Grid border thickness different from 0
+    {
+        // Set renderer color to draw the grid border
+        SDL_SetRenderDrawColor(renderer,
+                               grid->borderColor.r,
+                               grid->borderColor.g,
+                               grid->borderColor.b,
+                               grid->borderColor.a);
 
-    // Render grid border
-    SDL_RenderFillRect(renderer, &(grid->rect));
+        // Render grid border
+        SDL_RenderFillRect(renderer, &(grid->rect));
+    }
 
     // Render all cells
     for(int i = 0; i < grid->xCells; ++i)
@@ -136,15 +139,18 @@ void Grid_render(Grid *grid, SDL_Renderer *renderer)
 
 void Grid_renderCell(Cell *cell, SDL_Renderer *renderer)
 {
-    // Set renderer color to cell color
-    SDL_SetRenderDrawColor(renderer,
-                           cell->borderColor.r,
-                           cell->borderColor.g,
-                           cell->borderColor.b,
-                           cell->borderColor.a);
+    if(cell->border.x != cell->rect.x) // Cells border thickness different from 0
+    {
+        // Set renderer color to cell color
+        SDL_SetRenderDrawColor(renderer,
+                               cell->borderColor.r,
+                               cell->borderColor.g,
+                               cell->borderColor.b,
+                               cell->borderColor.a);
 
-    // Render filled cell
-    SDL_RenderFillRect(renderer, &(cell->border));
+        // Render filled cell
+        SDL_RenderFillRect(renderer, &(cell->border));
+    }
 
     // Set renderer color to cell color
     SDL_SetRenderDrawColor(renderer,

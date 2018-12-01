@@ -63,7 +63,7 @@ struct Grid
     SDL_Color backgroundColor;
 
     // Grid border thickness and color
-    int border;
+    unsigned int border;
     SDL_Color borderColor;
 
     // Number of cells over the x axis
@@ -72,7 +72,7 @@ struct Grid
     int yCells;
 
     // Cells boder thickness and color
-    int cellsBorder;
+    unsigned int cellsBorder;
     SDL_Color cellsBorderColor;
 
     // Matrix of Cells
