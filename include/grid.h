@@ -59,20 +59,21 @@ struct Grid
     // x, y, width, height
     SDL_Rect rect;
 
+    // Grid background color
+    SDL_Color backgroundColor;
+
+    // Grid border thickness and color
+    int border;
+    SDL_Color borderColor;
+
     // Number of cells over the x axis
     int xCells;
     // Number of cells over the y axis
     int yCells;
 
-    // Interspace between cells over the x axis
-    int xInterspace;
-    // Interspace between cells over the y axis
-    int yInterspace;
-
-    // Grid background color
-    SDL_Color backgroundColor;
-    // Grid border color
-    SDL_Color borderColor;
+    // Cells boder thickness and color
+    int cellsBorder;
+    SDL_Color cellsBorderColor;
 
     // Matrix of Cells
     Cell cells[GRID_MAX_X_CELLS][GRID_MAX_Y_CELLS];

@@ -40,11 +40,11 @@ int Grid_ajustSize(Grid *grid)
     }
 
     // Init rect
-    int interspaceWidth = (grid->xCells + 2) * grid->xInterspace;
-    grid->rect.w -= (grid->rect.w - interspaceWidth) % grid->xCells;
+    int interspaceWidth = grid->xCells * grid->cellsBorder * 2;
+    grid->rect.w -= (grid->rect.w - (grid->border * 2) - interspaceWidth) % grid->xCells;
 
-    int interspaceHeigth = (grid->yCells + 2) * grid->yInterspace;
-    grid->rect.h -= (grid->rect.h - interspaceHeigth) % grid->yCells;
+    int interspaceHeigth = grid->yCells * grid->cellsBorder * 2;
+    grid->rect.h -= (grid->rect.h - (grid->border * 2) - interspaceHeigth) % grid->yCells;
 
     return true;
 }
@@ -80,7 +80,7 @@ bool Grid_init(Grid *grid)
                           &(grid->cells[i][j]),
                           i, j,
                           grid->backgroundColor,
-                          grid->borderColor);
+                          grid->cellsBorderColor);
         }
     }
 
@@ -90,23 +90,23 @@ bool Grid_init(Grid *grid)
 void Grid_initCell(Grid *grid, Cell *cell, int i, int j, SDL_Color color, SDL_Color borderColor)
 {
     // Init rect
-    int interspaceWidth = (grid->xCells + 2) * grid->xInterspace;
-    cell->rect.w = (grid->rect.w - interspaceWidth) / grid->xCells;
+    int interspaceWidth = grid->xCells * grid->cellsBorder * 2;
+    cell->rect.w = (grid->rect.w - (grid->border * 2) - interspaceWidth) / grid->xCells;
 
-    int interspaceHeigth = (grid->yCells + 2) * grid->yInterspace;
-    cell->rect.h = (grid->rect.h - interspaceHeigth) / grid->yCells;
+    int interspaceHeigth = grid->yCells * grid->cellsBorder * 2;
+    cell->rect.h = (grid->rect.h - (grid->border * 2) - interspaceHeigth) / grid->yCells;
 
-    cell->rect.x = grid->rect.x + grid->xInterspace * (i+1.5) + cell->rect.w * i;
-    cell->rect.y = grid->rect.y + grid->yInterspace * (j+1.5) + cell->rect.h * j;
+    cell->rect.x = grid->rect.x + grid->border + grid->cellsBorder + (grid->cellsBorder * 2 + cell->rect.w) * i;
+    cell->rect.y = grid->rect.y + grid->border + grid->cellsBorder + (grid->cellsBorder * 2 + cell->rect.h) * j;
 
     // Init rectColor
     cell->rectColor = color;
 
     // Init border
-    cell->border.w = cell->rect.w + grid->xInterspace;
-    cell->border.h = cell->rect.h + grid->yInterspace;
-    cell->border.x = cell->rect.x - grid->xInterspace/2;
-    cell->border.y = cell->rect.y - grid->yInterspace/2;
+    cell->border.w = cell->rect.w + grid->cellsBorder * 2;
+    cell->border.h = cell->rect.h + grid->cellsBorder * 2;
+    cell->border.x = cell->rect.x - grid->cellsBorder;
+    cell->border.y = cell->rect.y - grid->cellsBorder;
 
     // Init borderColor
     cell->borderColor = borderColor;

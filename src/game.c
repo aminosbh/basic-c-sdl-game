@@ -40,17 +40,20 @@ bool Game_start(SDL_Renderer *renderer, int w, int h)
     grid.rect.w = MIN(w - margin * 2, h - margin * 2);
     grid.rect.h = grid.rect.w;
 
+    // Set grid backgroud
+    grid.backgroundColor = COLOR_DARK_GRAY;
+
+    // Set grid border thickness and color
+    grid.border = 3;
+    grid.borderColor = COLOR_GRAY;
+
     // Set number of cells
     grid.xCells = 10;
     grid.yCells = 10;
 
-    // Set cells interspace
-    grid.xInterspace = 6;
-    grid.yInterspace = 6;
-
-    // Set backgroud and border color
-    grid.backgroundColor = COLOR_DARK_GRAY;
-    grid.borderColor = COLOR_GRAY;
+    // Set cells border thickness and color
+    grid.cellsBorder = grid.border;
+    grid.cellsBorderColor = grid.borderColor;
 
     // Ajust size and center
     Grid_ajustSize(&grid);
