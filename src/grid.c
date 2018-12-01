@@ -99,7 +99,7 @@ void Grid_initCell(Grid *grid, Cell *cell, int i, int j, SDL_Color color, SDL_Co
     cell->rect.h = (grid->rect.h - interspaceHeigth) / grid->yCells;
 
     cell->rect.x = grid->rect.x + grid->xInterspace * (i+1.5) + cell->rect.w * i;
-    cell->rect.y = grid->rect.y + grid->xInterspace * (j+1.5) + cell->rect.h * j;
+    cell->rect.y = grid->rect.y + grid->yInterspace * (j+1.5) + cell->rect.h * j;
 
     // Init rectColor
     cell->rectColor = color;
