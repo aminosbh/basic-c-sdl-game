@@ -31,7 +31,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 #include "game.h"
 
@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-#if linux && SDL_VERSION_ATLEAST(2, 0, 8)
+#if defined linux && SDL_VERSION_ATLEAST(2, 0, 8)
     // Disable compositor bypass
     if(!SDL_SetHint(SDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR, "0"))
     {
