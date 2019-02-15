@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Amine Ben Hassouna <amine.benhassouna@gmail.com>
+ * Copyright (c) 2018, 2019 Amine Ben Hassouna <amine.benhassouna@gmail.com>
  * All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any
@@ -33,7 +33,7 @@
 
 #include <stdbool.h>
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 
 // Define MAX and MIN macros

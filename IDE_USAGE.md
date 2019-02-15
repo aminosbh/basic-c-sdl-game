@@ -1,4 +1,4 @@
-# CMake sdl project - IDE usage
+# CMake project - IDE usage
 
 There is many IDEs that support CMake projects. It could be natively or via plugins.<br>
 This is a short tutorial on how we can use some IDEs to open a CMake project on linux:
